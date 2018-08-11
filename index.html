@@ -3,14 +3,27 @@
     <head>
         <title>Troy MacCallumhor</title>
         <meta charset="utf-8"/>
-        <meta name="description" content="I am a casual photographer from Macomb, Michigan.">
-        <meta name="author" content="Troy MacCallumhor">
+        <meta name="description" content="I'm a casual photographer from Macomb, Michigan.">
+        <meta name="author" content="Troy MacCallumMhor">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#6E50DB">
+        <meta name="theme-color" content="#C9E8FF">
+        <link rel="stylesheet" href="./assets/css/main.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="./assets/js/main.js"></script>
     </head>
-    <body>
-       <h1>Hey, I'm Troy.</h1>
+    <body onresize="generateGrid">
+        <section class="mainpagesection" id="header">
+            <div class="headerPic"></div>
+            <div class="headerBio">
+                <!--<canvas id="PixelsCanvas"></canvas>-->
+                <h1>What's up, I'm Troy.</h1>
+                <h2>I'm a casual photographer from Macomb, Michigan. Currently a student at Albion College, I...</h2>
+                <a class="downButton" href="#section2">see more</a>
+            </div>
+        </section>
+        <section class="mainpagesection" id="section2">
+        </section>
+        <script src="./assets/js/pixels.js"></script>
     </body>
 </html>
