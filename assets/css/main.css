@@ -1,19 +1,51 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
+@import url("https://fonts.googleapis.com/css?family=Muli");
+
+* {
+    margin: 0;
+    padding: 0;
+}
 
 html {
     margin: 0;
-    background: #222222;
+    background: #272727;
     color: #C8AF96;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 body {
     margin: 0;
+    overflow: hidden;
+}
+
+table {
+    margin: 0;
+    border-spacing: 0;
+}
+    tr {
+        margin: 0;
+        vertical-align: top;
+    }
+
+    td {
+        margin: 0;
+    }
+
+h1 {
+    display: block;
+    margin: 0 auto;
+    padding-top: 5vh;
+    text-align: center;
+    font-size: 30pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1pt;
 }
 
 .mainpagesection {
     position: relative;
     height: 100vh;
+    width: 100vw;
     margin: 0;
 }
 
@@ -42,15 +74,17 @@ body {
         margin-top: 30vh;
         margin-left: 20%;
         margin-right: 10%;
+        margin-bottom: 30.0px;
+        padding: 0;
         font-size: 40pt;
         font-weight: 900;
         text-align: right;
         z-index: 1;
+        text-transform: none;
     }
 
     .headerBio h2 {
         position: relative;
-        margin-top: 20.0;
         margin-left: 20%;
         margin-right: 10%;
         font-size: 16pt;
@@ -59,13 +93,84 @@ body {
         z-index: 1;
     }
 
-.downButton {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10%;
+.navbar {
+    position: fixed;
+    bottom: 0;
+    background-color: #272727;
+    width: 100vw;
+    z-index: 4;
+}
+
+    #backButton1 {
+        border-color: #272727;
+    }
+
+        #backButton1:link {
+            color: #272727;
+        }
+
+        #backButton1:visited {
+            color: #272727;
+        }
+
+        #backButton1:hover {
+            border-color: #86444E;
+            color: #86444E;
+        }
+
+    #nextButton1 {
+        border-color: #272727;
+    }
+
+        #nextButton1:link {
+            color: #272727;
+        }
+
+        #nextButton1:visited {
+            color: #272727;
+        }
+
+        #nextButton1:hover {
+            border-color: #86444E;
+            color: #86444E;
+        }
+
+    #backButton2 {
+        border-color: #64B9FF;
+    }
+
+        #backButton2:link {
+            color: #64B9FF;
+        }
+
+        #backButton2:visited {
+            color: #64B9FF;
+        }
+
+        #backButton2:hover {
+            border-color: #C8BEB4;
+            color: #C8BEB4;
+        }
+
+    #nextButton2 {
+        border-color: #64B9FF;
+    }
+
+        #nextButton2:link {
+            color: #64B9FF;
+        }
+
+        #nextButton2:visited {
+            color: #64B9FF;
+        }
+
+        #nextButton2:hover {
+            border-color: #C8BEB4;
+            color: #C8BEB4;
+        }
+
+.navButton {
     padding: 20px 50px 20px 50px;
-    right: 10%;
     text-transform: uppercase;
     text-align: right;
     text-decoration: none;
@@ -73,41 +178,50 @@ body {
     font-size: 10pt;
     border: 1px solid #C8BEB4;
     border-radius: 50px;
-    letter-spacing: 2pt;
-    z-index: 1;
+    letter-spacing: 2.5pt;
+    z-index: 5;
 }
 
-    .downButton:link {
+    .navButton:link {
         -webkit-transition: color 0.3s;
         -moz-transition: color 0.3s;
         -o-transition: color 0.3s;
         transition: color 0.3s;
-    }
-
-    .downButton:visited {
         color: #C8AF96;
     }
 
-    .downButton:hover {
+    .navButton:visited {
+        color: #C8AF96;
+    }
+
+    .navButton:hover {
         border-color: #64B9FF;
         color: #64B9FF;
     }
-    
-    .downButton i {
-        margin-top: 10px;
-        margin-right: 10px;
-        font-size: 18pt;
+
+    #firstButton {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        right: 10%;
     }
 
-#PixelsCanvas {
-    position: absolute;
-    display: block;
-    border:0;
-    margin:0 auto;
-    right: 0;
-    z-index: 0;
-}
+    .PixelsCanvas {
+        position: absolute;
+        display: block;
+        border: 0;
+        margin: 0 auto;
+        right: 0;
+        z-index: -1;
+    }
 
 #section2 {
     background-color: #BBBBBB;
+    color: #272727;
+}
+
+#section3 {
+    background-color: #000000;
+    color: #64B9FF
 }

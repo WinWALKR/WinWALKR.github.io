@@ -1,6 +1,6 @@
-var mainCanvas = document.querySelector(".PixelsCanvas");
+var mainCanvas = document.querySelector("#PixelsCanvas2");
 var mainContext = mainCanvas.getContext("2d");
-mainCanvas.width = mainCanvas.parentElement.clientWidth;
+mainCanvas.width = window.innerWidth;
 mainCanvas.height = window.innerHeight;
 var canvasWidth = mainCanvas.width;
 var canvasHeight = mainCanvas.height;
