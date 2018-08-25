@@ -4,7 +4,7 @@ mainCanvas.width = mainCanvas.parentElement.clientWidth;
 mainCanvas.height = window.innerHeight;
 var canvasWidth = mainCanvas.width;
 var canvasHeight = mainCanvas.height;
-const pixelSize = 64;
+const pixelSize = 56;
 var canvasWidthPixels = Math.floor(canvasWidth/pixelSize);
 var canvasHeightPixels = Math.floor(canvasHeight/pixelSize);
 

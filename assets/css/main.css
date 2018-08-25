@@ -1,6 +1,118 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Muli");
 
+@-webkit-keyframes arrowMove {
+    0% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+}
+
+@-moz-keyframes arrowMove {
+    0% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+}
+
+@-o-keyframes arrowMove {
+    0% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+}
+
+@keyframes arrowMove {
+    0% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+}
+
+@-webkit-keyframes arrowMoveBack {
+    0% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+}
+
+@-moz-keyframes arrowMoveBack {
+    0% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+}
+
+@-o-keyframes arrowMoveBack {
+    0% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+}
+
+@keyframes arrowMoveBack {
+    0% {
+    	-webkit-transform: translate(10px, 0);
+    	opacity: 0;
+    }
+    50% {
+    	opacity: 1;
+    }
+    100% {
+    	-webkit-transform: translate(-10px, 0);
+    	opacity: 0;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,16 +130,21 @@ body {
     overflow: hidden;
 }
 
-table {
+.mainTable {
     margin: 0;
     border-spacing: 0;
 }
-    tr {
+    .scrollContainer {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
         margin: 0;
         vertical-align: top;
     }
 
-    td {
+    .tablePage {
         margin: 0;
     }
 
@@ -169,6 +286,44 @@ h1 {
             color: #C8BEB4;
         }
 
+.backNavButton {
+    padding: 20px 50px 20px 50px;
+    text-transform: uppercase;
+    text-align: right;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 10pt;
+    border: 1px solid #C8BEB4;
+    border-radius: 50px;
+    letter-spacing: 2.5pt;
+    z-index: 5;
+}
+
+    .backNavButton:link {
+        -webkit-transition: color 0.3s;
+        -moz-transition: color 0.3s;
+        -o-transition: color 0.3s;
+        transition: color 0.3s;
+        color: #C8AF96;
+    }
+
+    .backNavButton:visited {
+        color: #C8AF96;
+    }
+
+    .backNavButton:hover {
+        border-color: #64B9FF;
+        color: #64B9FF;
+    }
+
+    .backNavButton i {
+        margin-right: 15px;
+        -webkit-animation: arrowMoveBack 2s infinite;
+        -moz-animation: arrowMoveBack 2s infinite;
+        -o-animation: arrowMoveBack 2s infinite;
+        animation: arrowMoveBack 2s infinite;
+    }
+
 .navButton {
     padding: 20px 50px 20px 50px;
     text-transform: uppercase;
@@ -199,6 +354,14 @@ h1 {
         color: #64B9FF;
     }
 
+    .navButton i {
+        margin-left: 15px;
+        -webkit-animation: arrowMove 2s infinite;
+        -moz-animation: arrowMove 2s infinite;
+        -o-animation: arrowMove 2s infinite;
+        animation: arrowMove 2s infinite;
+    }
+
     #firstButton {
         position: absolute;
         margin-left: auto;
@@ -219,6 +382,10 @@ h1 {
 #section2 {
     background-color: #BBBBBB;
     color: #272727;
+    /*background-image: url("../images/beach.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;*/
 }
 
 #section3 {
