@@ -287,6 +287,9 @@ h1 {
         }
 
 .backNavButton {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
     padding: 20px 50px 20px 50px;
     text-transform: uppercase;
     text-align: right;
@@ -318,13 +321,16 @@ h1 {
 
     .backNavButton i {
         margin-right: 15px;
-        -webkit-animation: arrowMoveBack 2s infinite;
-        -moz-animation: arrowMoveBack 2s infinite;
-        -o-animation: arrowMoveBack 2s infinite;
-        animation: arrowMoveBack 2s infinite;
+        -webkit-animation: arrowMoveBack 1.5s infinite;
+        -moz-animation: arrowMoveBack 1.5s infinite;
+        -o-animation: arrowMoveBack 1.5s infinite;
+        animation: arrowMoveBack 1.5s infinite;
     }
 
 .navButton {
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
     padding: 20px 50px 20px 50px;
     text-transform: uppercase;
     text-align: right;
@@ -356,18 +362,53 @@ h1 {
 
     .navButton i {
         margin-left: 15px;
-        -webkit-animation: arrowMove 2s infinite;
-        -moz-animation: arrowMove 2s infinite;
-        -o-animation: arrowMove 2s infinite;
-        animation: arrowMove 2s infinite;
+        -webkit-animation: arrowMove 1.5s infinite;
+        -moz-animation: arrowMove 1.5s infinite;
+        -o-animation: arrowMove 1.5s infinite;
+        animation: arrowMove 1.5s infinite;
     }
 
-    #firstButton {
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10%;
-        right: 10%;
+#firstButton {
+    position: absolute;
+    padding: 20px 50px 20px 50px;
+    text-transform: uppercase;
+    text-align: right;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 10pt;
+    border: 1px solid #C8BEB4;
+    border-radius: 50px;
+    letter-spacing: 2.5pt;
+    z-index: 5;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    right: 10%;
+}
+
+    #firstButton:link {
+        -webkit-transition: color 0.3s;
+        -moz-transition: color 0.3s;
+        -o-transition: color 0.3s;
+        transition: color 0.3s;
+        color: #C8AF96;
+    }
+
+    #firstButton:visited {
+        color: #C8AF96;
+    }
+
+    #firstButton:hover {
+        border-color: #64B9FF;
+        color: #64B9FF;
+    }
+
+    #firstButton i {
+        margin-left: 15px;
+        -webkit-animation: arrowMove 1.5s infinite;
+        -moz-animation: arrowMove 1.5s infinite;
+        -o-animation: arrowMove 1.5s infinite;
+        animation: arrowMove 1.5s infinite;
     }
 
     .PixelsCanvas {

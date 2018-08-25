@@ -1,92 +1,117 @@
-var mainCanvas = document.querySelector(".PixelsCanvas");
+const pixelSize = 160;
+
+function setCanvasSize(canvas) {
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = window.innerHeight;
+}
+
+function canvasWidthPixels(canvas) {
+    return Math.ceil(canvas.width/pixelSize);
+}
+
+function canvasHeightPixels(canvas) {
+    return Math.ceil(canvas.height/pixelSize);
+}
+
+function printCells(canvas, grid, context){
+    var canvasWidth = canvasWidthPixels(canvas);
+    var canvasHeight = canvasHeightPixels(canvas);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    for(var i = 0; i < canvasHeight; i++){
+        for(var j = 0; j < canvasWidth; j++){
+            context.fillStyle="rgba(10, 10, 10, " + 0.5 * (Math.sin(grid[i][j]) + 1) + ")";
+            context.fillRect(pixelSize*j, pixelSize*i, pixelSize, pixelSize);
+        }
+    }
+}
+
+function clearGrid(canvas){
+    setCanvasSize(canvas);
+    var canvasWidth = canvasWidthPixels(canvas);
+    var canvasHeight = canvasHeightPixels(canvas);
+    grid = new Array (canvasHeight);
+    for(var iGy = 0; iGy < canvasHeight; iGy++){
+        grid[iGy] = new Array(canvasWidth);
+    }
+    for(var i = 0; i < canvasHeight; i++){
+        for(var j = 0; j < canvasWidth; j++){
+            grid[i][j] = 0.0;
+        }
+    }
+    return grid;
+}
+
+function generateGrid(canvas){
+    grid = clearGrid(canvas);
+    var canvasWidth = canvasWidthPixels(canvas);
+    var canvasHeight = canvasHeightPixels(canvas);
+    for(var i = 0; i < canvasHeight; i++){
+        for(var j = 0; j < canvasWidth; j++){
+            grid[i][j] = Math.random() * 2 * Math.PI;
+        }
+    }
+    return grid;
+}
+
+var mainCanvas = document.querySelector("#PixelsCanvas1");
 var mainContext = mainCanvas.getContext("2d");
-mainCanvas.width = mainCanvas.parentElement.clientWidth;
-mainCanvas.height = window.innerHeight;
-var canvasWidth = mainCanvas.width;
-var canvasHeight = mainCanvas.height;
-const pixelSize = 56;
-var canvasWidthPixels = Math.floor(canvasWidth/pixelSize);
-var canvasHeightPixels = Math.floor(canvasHeight/pixelSize);
+setCanvasSize(mainCanvas);
+var initGrid1 = generateGrid(mainCanvas, mainContext);
+printCells(mainCanvas, initGrid1, mainContext);
+var mainCanvasWidth = canvasWidthPixels(mainCanvas);
+var mainCanvasHeight = canvasHeightPixels(mainCanvas);
 
-var framestoskip = 5, counter = 0, currCount = 0;
-
-var initGrid;
+var secondCanvas = document.querySelector("#PixelsCanvas2");
+var secondContext = secondCanvas.getContext("2d");
+setCanvasSize(secondCanvas);
+var initGrid2 = generateGrid(secondCanvas, secondContext);
+printCells(secondCanvas, initGrid2, secondContext);
+var secondCanvasWidth = canvasWidthPixels(secondCanvas);
+var secondCanvasHeight = canvasHeightPixels(secondCanvas);
 
 var requestAnimationFrame = window.requestAnimationFrame ||
                             window.mozRequestAnimatioFrame ||
                             window.webkitRequestAnimationFrame ||
                             window.msRequestAnimationFrame;
 
-function clearGrid(){
-    playing = false;
-    mainCanvas.width = 0.5 * window.innerWidth;
-    mainCanvas.height = window.innerHeight;
-    canvasWidth = mainCanvas.width;
-    canvasHeight = mainCanvas.height;
-    canvasWidthPixels = Math.floor(canvasWidth/pixelSize);
-    canvasHeightPixels = Math.floor(canvasHeight/pixelSize);
-    initGrid = new Array (canvasHeightPixels);
-    for(var iGy = 0; iGy < canvasHeightPixels; iGy++){
-        initGrid[iGy] = new Array(canvasWidthPixels);
-    }
-    for(var i = 0; i < canvasHeightPixels; i++){
-        for(var j = 0; j < canvasWidthPixels; j++){
-            initGrid[i][j] = 0.0;
-        }
-    }
-    printCells();
-}
+$(window).resize(function(){
 
-function generateGrid(){
-    clearGrid();
-    for(var i = 0; i < canvasHeightPixels; i++){
-        for(var j = 0; j < (canvasWidthPixels); j++){
-            initGrid[i][j] = Math.random() * 2 * Math.PI;
-        }
-    }
-    printCells();
-}
+    initGrid1 = generateGrid(mainCanvas, mainContext);
+    mainCanvasWidth = canvasWidthPixels(mainCanvas);
+    mainCanvasHeight = canvasHeightPixels(mainCanvas);
+    printCells(mainCanvas, initGrid1, mainContext);
+    
+    initGrid2 = generateGrid(secondCanvas, secondContext);
+    secondCanvasWidth = canvasWidthPixels(secondCanvas);
+    secondCanvasHeight = canvasHeightPixels(secondCanvas);
+    printCells(secondCanvas, initGrid2, secondContext);
+});
 
-function incrementGrid(){
-    for(var i = 0; i < canvasHeightPixels; i++){
-        for(var j = 0; j < canvasWidthPixels; j++){
-            if (initGrid[i][j] >= (2 * Math.PI)){
-                initGrid[i][j] = 0.0;
+function pixels(){
+    for(var i = 0; i < mainCanvasHeight; i++){
+        for(var j = 0; j < mainCanvasWidth; j++){
+            if (initGrid1[i][j] >= (2 * Math.PI)){
+                initGrid1[i][j] = 0.0;
             }
             else {
-                initGrid[i][j] += 0.1;
+                initGrid1[i][j] += 0.02;
             }
         }
     }
-}
-
-function nextLevel(){
-    if(counter < framestoskip){
-        counter++;
-        requestAnimationFrame(nextLevel);
-        return;
-    }
-    incrementGrid();
-    printCells();
-    counter = 0;
-    requestAnimationFrame(nextLevel);
-}
-
-function printCells(){
-    mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
-    mainContext.fillStyle="rgba(10, 10, 10, 0.0)";
-    mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
-    for(var i = 0; i < canvasHeightPixels; i++){
-        for(var j = 0; j < canvasWidthPixels; j++){
-            mainContext.fillStyle="rgba(10, 10, 10, " + 0.5 * (Math.sin(initGrid[i][j]) + 1) + ")";
-            mainContext.fillRect(pixelSize*j, pixelSize*i, pixelSize, pixelSize);
+    for(var i = 0; i < secondCanvasHeight; i++){
+        for(var j = 0; j < secondCanvasWidth; j++){
+            if (initGrid2[i][j] >= (2 * Math.PI)){
+                initGrid2[i][j] = 0.0;
+            }
+            else {
+                initGrid2[i][j] += 0.02;
+            }
         }
     }
+    printCells(mainCanvas, initGrid1, mainContext);
+    printCells(secondCanvas, initGrid2, secondContext);
+    requestAnimationFrame(pixels);
+    return;
 }
 
-generateGrid();
-nextLevel();
-
-$(window).resize(function(){
-    generateGrid();
-});
+pixels();
