@@ -1,8 +1,9 @@
-const pixelSize = 160;
+const pixelSize = 80;
 
 function setCanvasSize(canvas) {
     canvas.width = canvas.parentElement.clientWidth;
     canvas.height = window.innerHeight;
+    return;
 }
 
 function canvasWidthPixels(canvas) {
@@ -23,6 +24,7 @@ function printCells(canvas, grid, context){
             context.fillRect(pixelSize*j, pixelSize*i, pixelSize, pixelSize);
         }
     }
+    return;
 }
 
 function clearGrid(canvas){
@@ -75,16 +77,12 @@ var requestAnimationFrame = window.requestAnimationFrame ||
                             window.msRequestAnimationFrame;
 
 $(window).resize(function(){
-
     initGrid1 = generateGrid(mainCanvas, mainContext);
     mainCanvasWidth = canvasWidthPixels(mainCanvas);
     mainCanvasHeight = canvasHeightPixels(mainCanvas);
-    printCells(mainCanvas, initGrid1, mainContext);
-    
     initGrid2 = generateGrid(secondCanvas, secondContext);
     secondCanvasWidth = canvasWidthPixels(secondCanvas);
     secondCanvasHeight = canvasHeightPixels(secondCanvas);
-    printCells(secondCanvas, initGrid2, secondContext);
 });
 
 function pixels(){
