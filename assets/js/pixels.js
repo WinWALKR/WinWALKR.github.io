@@ -1,4 +1,4 @@
-const pixelSize = 80;
+const pixelSize = 120;
 
 function setCanvasSize(canvas) {
     canvas.width = canvas.parentElement.clientWidth;

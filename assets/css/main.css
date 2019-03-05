@@ -131,9 +131,28 @@
 }
 
 @keyframes fade {
+    0% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes fade2 {
     0% {opacity: 0;}
-    50% {opacity: 1;}
-    100% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-moz-keyframes fade2 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-o-keyframes fade2 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fade2 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 * {
@@ -485,7 +504,7 @@ h1 {
         border: 1px solid #DDDDDD;
         background: #DDDDDD;
         border-radius: 50px;
-        padding: 5px 10px 5px 10px;
+        padding: 15px 10px 15px 10px;
         text-align: center;
     }
 
@@ -528,7 +547,7 @@ h1 {
         border: 1px solid #DDDDDD;
         background: #DDDDDD;
         border-radius: 50px;
-        padding: 5px 10px 5px 10px;
+        padding: 15px 10px 15px 10px;
         text-align: center;
     }
 
@@ -566,8 +585,8 @@ h1 {
 
         .slide img {
             display: block;
-            max-width: 100%;
-            max-height: 90%;
+            max-width: 70vw;
+            max-height: 75vh;
             border: 1px solid #DDDDDD;
             border-radius: 10px;
             margin: 0 auto;
@@ -578,3 +597,19 @@ h1 {
             color: #DDDDDD;
             margin-top: 20px;
         }
+
+.instagram-media {
+    display: none;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -moz-animation-name: fade;
+    -moz-animation-duration: 2s;
+    -o-animation-name: fade;
+    -o-animation-duration: 2s;
+    animation-name: fade;
+    animation-duration: 2s;
+    z-index: 2;
+}
